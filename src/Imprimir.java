@@ -14,11 +14,8 @@ public class Imprimir {
 
   public static void main(String[] args) throws IOException, PrinterException {
     
-	  String filename;
-	  
-	  filename = "/assets/test_page.pdf";
-	  
-	  String printerNameDesired = "PRINTER_NAME";
+	  String filePath = args[0];
+	  String printerNameDesired = args[1];
 	  
 	  javax.print.PrintService[] service = PrinterJob.lookupPrintServices();
 	  DocPrintJob docPrintJob = null;
@@ -43,7 +40,7 @@ public class Imprimir {
             
       pdf.close();
       
-      new File(filename).delete();
+      new File(filePath).delete();
       System.exit(0);
       
     } catch (Exception e) {
